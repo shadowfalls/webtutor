@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "repository": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/shadowfalls/shadowfalls.github.io/issues"
   },
-  "homepage": "https://shadowfalls.github.io/shadowfalls.github.io",
+  "homepage": "https://shadowfalls.github.io/webtutor",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
