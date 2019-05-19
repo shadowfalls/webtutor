@@ -1,0 +1,59 @@
+@import '../../styles/common.scss';
+
+.blog-page {
+    .heading-advertise {
+        height: 10vh;
+        background-color: $ad-color;
+        margin-left: 30%;  
+        margin-right: 30%;  
+    }
+    &__container {
+        margin-top: 30px;
+        .heading-text {
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1.2;
+            padding-left: 1.5em;
+        }
+        .advertise {
+            background-color: $ad-color;
+        }
+        .lead {
+            padding-left: 6em;
+            color: rgba(0,0,0,.54);
+            fill: rgba(0,0,0,.54);
+            font-size: 16px;
+        }
+        .contents {
+            margin-right: 1em;
+            margin-left: 1em;
+            --x-height-multiplier: 0.375;
+            --baseline-multiplier: 0.17;
+            font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+            letter-spacing: .01rem;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 21px;
+            line-height: 1.58;
+            letter-spacing: -.003em;
+            > div {
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+            }
+            .main-heading {
+                font-size: 30px;
+                font-weight: 600;
+            }
+            .sub-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .code-section {
+                background: rgba(0,0,0,.05);
+                padding: 20px;
+                white-space: pre-wrap;
+            }
+        }
+    }
+}

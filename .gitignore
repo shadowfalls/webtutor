@@ -1,0 +1,12 @@
+**/\.DS_Store
+.serverless
+.webpack
+dist/
+node_modules/
+**/src_images/
+**/dest_images/
+**/play_inspiration_images/
+.env
+.git/
+.env*
+**/.dynamodb
