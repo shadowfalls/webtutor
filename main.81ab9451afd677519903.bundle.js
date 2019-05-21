@@ -112,7 +112,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "75390f7345e0190c3ff3";
+/******/ 	var hotCurrentHash = "81ab9451afd677519903";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1097,6 +1097,42 @@ function (_React$Component) {
 }(react_default.a.Component);
 
 
+// CONCATENATED MODULE: ./src/app/core/Utils.js
+function Utils_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Utils_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function Utils_createClass(Constructor, protoProps, staticProps) { if (protoProps) Utils_defineProperties(Constructor.prototype, protoProps); if (staticProps) Utils_defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Utils_Utils =
+/*#__PURE__*/
+function () {
+  function Utils() {
+    Utils_classCallCheck(this, Utils);
+  }
+
+  Utils_createClass(Utils, [{
+    key: "getDate",
+    value: function getDate(date) {
+      if (!date) return new Date();
+      return new Date(date);
+    }
+  }, {
+    key: "printDate",
+    value: function printDate(date) {
+      if (!date) return '';
+      date = this.getDate(date);
+      var month = constants["months"][date.getMonth()];
+      return month + ' ' + date.getDate() + ', ' + date.getFullYear();
+    }
+  }]);
+
+  return Utils;
+}();
+
+
 // EXTERNAL MODULE: ./src/app/BlogList/BlogList.scss
 var BlogList_BlogList = __webpack_require__(72);
 
@@ -1111,13 +1147,16 @@ function BlogList_createClass(Constructor, protoProps, staticProps) { if (protoP
 
 function BlogList_possibleConstructorReturn(self, call) { if (call && (BlogList_typeof(call) === "object" || typeof call === "function")) { return call; } return BlogList_assertThisInitialized(self); }
 
-function BlogList_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function BlogList_getPrototypeOf(o) { BlogList_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return BlogList_getPrototypeOf(o); }
+
+function BlogList_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function BlogList_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) BlogList_setPrototypeOf(subClass, superClass); }
 
 function BlogList_setPrototypeOf(o, p) { BlogList_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return BlogList_setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1137,6 +1176,9 @@ function (_React$Component) {
     BlogList_classCallCheck(this, BlogList);
 
     _this = BlogList_possibleConstructorReturn(this, BlogList_getPrototypeOf(BlogList).call(this, props));
+
+    _defineProperty(BlogList_assertThisInitialized(_this), "utils", new Utils_Utils());
+
     _this.state = {
       blogs: []
     };
@@ -1173,6 +1215,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var blogs = this.state.blogs.map(function (c) {
         return react_default.a.createElement(Col["a" /* default */], {
           xs: "11",
@@ -1181,7 +1225,9 @@ function (_React$Component) {
           sm: "11",
           className: "card-margin",
           key: c.blogId
-        }, react_default.a.createElement(Card["a" /* default */], null, react_default.a.createElement(CardBody["a" /* default */], null, react_default.a.createElement(CardTitle["a" /* default */], null, c.blogName), react_default.a.createElement(react_router_dom["b" /* Link */], {
+        }, react_default.a.createElement(Card["a" /* default */], null, react_default.a.createElement(CardBody["a" /* default */], null, react_default.a.createElement(CardTitle["a" /* default */], null, c.blogName), react_default.a.createElement("div", {
+          className: "details"
+        }, _this3.utils.printDate(c.date) + ' - ' + c.readTimeMin + ' mins read'), react_default.a.createElement(react_router_dom["b" /* Link */], {
           to: {
             pathname: constants["routeLinks"].blogPage,
             search: "?id=".concat(c.blogId)
@@ -1192,21 +1238,13 @@ function (_React$Component) {
         className: "blog-list"
       }, react_default.a.createElement("div", {
         className: "blog-list__container"
-      }, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
-        className: "advertise d-none d-xl-block d-lg-block d-md-block",
-        xs: "3",
-        md: "2"
-      }), react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
+      }, react_default.a.createElement(Container["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
         xs: "12"
       }, react_default.a.createElement("div", {
         className: "heading-text"
-      }, this.state.catName), react_default.a.createElement("p", {
+      }, this.state.catName), this.state.catName && react_default.a.createElement("p", {
         className: "lead"
-      }, "Availabel articles")), blogs)), react_default.a.createElement(Col["a" /* default */], {
-        className: "advertise d-none d-xl-block d-lg-block d-md-block",
-        xs: "3",
-        md: "2"
-      }))));
+      }, "Availabel articles")), blogs))))));
     }
   }]);
 
@@ -1293,21 +1331,13 @@ function (_React$Component) {
         className: "categories-page"
       }, react_default.a.createElement("div", {
         className: "categories-page__container"
-      }, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
-        className: "advertise d-none d-xl-block d-lg-block d-md-block",
-        xs: "3",
-        md: "2"
-      }), react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
+      }, react_default.a.createElement(Container["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
         xs: "12"
       }, react_default.a.createElement("div", {
         className: "heading-text"
       }, "Topics"), react_default.a.createElement("p", {
         className: "lead"
-      }, "These are the available topics/categories of blogs that we have so far")), cats)), react_default.a.createElement(Col["a" /* default */], {
-        className: "advertise d-none d-xl-block d-lg-block d-md-block",
-        xs: "3",
-        md: "2"
-      }))));
+      }, "These are the available topics/categories of blogs that we have so far")), cats))))));
     }
   }]);
 
@@ -1321,32 +1351,6 @@ var build_main_default = /*#__PURE__*/__webpack_require__.n(build_main);
 
 // EXTERNAL MODULE: ./src/app/Blog/Blog.scss
 var Blog_Blog = __webpack_require__(75);
-
-// CONCATENATED MODULE: ./src/app/core/Utils.js
-function Utils_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function Utils_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function Utils_createClass(Constructor, protoProps, staticProps) { if (protoProps) Utils_defineProperties(Constructor.prototype, protoProps); if (staticProps) Utils_defineProperties(Constructor, staticProps); return Constructor; }
-
-var Utils =
-/*#__PURE__*/
-function () {
-  function Utils() {
-    Utils_classCallCheck(this, Utils);
-  }
-
-  Utils_createClass(Utils, [{
-    key: "getDate",
-    value: function getDate(date) {
-      if (!date) return new Date();
-      return new Date(date);
-    }
-  }]);
-
-  return Utils;
-}();
-
 
 // CONCATENATED MODULE: ./src/app/Blog/Blog.js
 function Blog_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Blog_typeof = function _typeof(obj) { return typeof obj; }; } else { Blog_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Blog_typeof(obj); }
@@ -1367,7 +1371,7 @@ function Blog_inherits(subClass, superClass) { if (typeof superClass !== "functi
 
 function Blog_setPrototypeOf(o, p) { Blog_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Blog_setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function Blog_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -1390,7 +1394,7 @@ function (_Component) {
 
     _this = Blog_possibleConstructorReturn(this, Blog_getPrototypeOf(Blog).call(this, props));
 
-    _defineProperty(Blog_assertThisInitialized(_this), "utils", new Utils());
+    Blog_defineProperty(Blog_assertThisInitialized(_this), "utils", new Utils_Utils());
 
     _this.state = {
       title: '',
@@ -1437,7 +1441,7 @@ function (_Component) {
     value: function printDate(date) {
       if (!date) return '';
       var month = constants["months"][date.getMonth()];
-      return month + ' ' + date.getDate();
+      return month + ' ' + date.getDate() + ', ' + date.getFullYear();
     }
   }, {
     key: "handleNewComment",
@@ -1472,8 +1476,8 @@ function (_Component) {
             __html: line.html
           }
         });
-        if (line.isCodeSection) return react_default.a.createElement("div", {
-          className: "code-section",
+        if (line.isQuoted) return react_default.a.createElement("div", {
+          className: "quote",
           key: index,
           dangerouslySetInnerHTML: {
             __html: line.html
@@ -1485,13 +1489,12 @@ function (_Component) {
             __html: line.html
           }
         });
-      }),
-          url = 'https://shadowfalls.github.io/';
+      });
       return react_default.a.createElement("span", {
         className: "blog-page"
       }, react_default.a.createElement("div", {
         className: "blog-page__container"
-      }, react_default.a.createElement(Container["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
+      }, react_default.a.createElement(Container["a" /* default */], null, react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], {
         xs: "12"
       }, react_default.a.createElement("div", {
         className: "heading-text"
@@ -1500,11 +1503,10 @@ function (_Component) {
       }, this.printDate(this.state.date), "\xA0-\xA0", this.state.readTimeMin, " mins read")), react_default.a.createElement(Col["a" /* default */], {
         xs: "12",
         className: "contents"
-      }, blog)))), react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(build_main_default.a, {
-        shortname: this.state.title,
+      }, blog)), react_default.a.createElement(Row["a" /* default */], null, react_default.a.createElement(Col["a" /* default */], null, react_default.a.createElement(build_main_default.a, {
+        shortname: "shadowfalls-github-io-webtutor-1",
         identifier: this.state.title + '123',
         title: this.state.title,
-        url: "".concat(url, "/").concat(this.id),
         onNewComment: this.handleNewComment
       }))))));
     }
@@ -1572,7 +1574,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react_default.a.createElement(react_router_dom["a" /* BrowserRouter */], null, react_default.a.createElement("span", {
+      return react_default.a.createElement(react_router_dom["a" /* HashRouter */], null, react_default.a.createElement("span", {
         className: "root"
       }, react_default.a.createElement(Navbar["a" /* default */], {
         className: "desktop-nav",
@@ -1640,4 +1642,4 @@ wrapper ? react_dom_default.a.render(react_default.a.createElement(src_App, null
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.75390f7345e0190c3ff3.bundle.js.map
+//# sourceMappingURL=main.81ab9451afd677519903.bundle.js.map
