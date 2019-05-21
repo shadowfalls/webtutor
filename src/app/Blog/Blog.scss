@@ -80,6 +80,43 @@
                 padding-left: 0em;
                 text-align: center;
             }
+            .contents {
+                font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+                letter-spacing: .01rem;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 1.58;
+                letter-spacing: -.003em;
+                > div {
+                    display: block;
+                    margin-block-start: 0.75em;
+                    margin-block-end: 0.75em;
+                }
+                .main-heading {
+                    font-size: 30px;
+                    font-weight: 600;
+                }
+                .sub-heading {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .code-section {
+                    background: rgba(0,0,0,.05);
+                    padding: 14px;
+                    white-space: pre-wrap;
+                }
+                .quote {
+                    background-color: transparent !important;
+                    font-size: 24px;
+                    line-height: 1.4;
+                    letter-spacing: -.005em;
+                    font-family: medium-content-slab-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    padding-left: 20%;
+                }
+            }
         }
     }
 }

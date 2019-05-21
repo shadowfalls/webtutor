@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    return <BrowserRouter>
+    return <HashRouter>
       <span className="root">
         <Navbar className="desktop-nav" color="light" light expand="md">
           <Link className="navbar-brand" to={{ pathname: '/' }}>WebTutor</Link>
@@ -60,7 +60,7 @@ class App extends Component {
           <Route exact path='/' component={LandingPage} />
         </Switch>
       </span>
-    </BrowserRouter>;
+    </HashRouter>;
   }
 }
 export default App;
