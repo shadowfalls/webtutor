@@ -83,8 +83,7 @@ export default class Blog extends Component {
                 return <div className="quote" key={index} dangerouslySetInnerHTML={{ __html: line.html }}></div>;
 
             return <div key={index} dangerouslySetInnerHTML={{ __html: line.html }}></div>;
-        }),
-            url = 'https://shadowfalls.github.io/webtutor';
+        });
         return <span className="blog-page">
             {/* <div className="heading-advertise">
                 </div> */}
@@ -109,10 +108,9 @@ export default class Blog extends Component {
                     <Row>
                         <Col>
                             <ReactDisqusComments
-                                shortname={this.state.title}
+                                shortname="shadowfalls-github-io-webtutor-1"
                                 identifier={this.state.title + '123'}
                                 title={this.state.title}
-                                url={`${url}/${this.id}`}
                                 onNewComment={this.handleNewComment} />
                         </Col>
                     </Row>
