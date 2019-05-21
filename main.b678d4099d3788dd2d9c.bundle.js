@@ -112,7 +112,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5bdc96d97b52a4e10e01";
+/******/ 	var hotCurrentHash = "b678d4099d3788dd2d9c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1576,7 +1576,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react_default.a.createElement(react_router_dom["a" /* BrowserRouter */], null, react_default.a.createElement("span", {
+      return react_default.a.createElement(react_router_dom["a" /* HashRouter */], null, react_default.a.createElement("span", {
         className: "root"
       }, react_default.a.createElement(Navbar["a" /* default */], {
         className: "desktop-nav",
@@ -1644,4 +1644,4 @@ wrapper ? react_dom_default.a.render(react_default.a.createElement(src_App, null
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.5bdc96d97b52a4e10e01.bundle.js.map
+//# sourceMappingURL=main.b678d4099d3788dd2d9c.bundle.js.map
