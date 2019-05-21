@@ -25,10 +25,6 @@
             font-size: 16px;
         }
         .contents {
-            margin-right: 1em;
-            margin-left: 1em;
-            --x-height-multiplier: 0.375;
-            --baseline-multiplier: 0.17;
             font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
             letter-spacing: .01rem;
             font-weight: 400;
@@ -53,6 +49,36 @@
                 background: rgba(0,0,0,.05);
                 padding: 20px;
                 white-space: pre-wrap;
+            }
+            .quote {
+                background-color: transparent !important;
+                font-size: 24px;
+                line-height: 1.4;
+                letter-spacing: -.005em;
+                font-family: medium-content-slab-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+                font-weight: 400;
+                font-style: italic;
+                padding-left: 20%;
+            }
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        &__container {
+            margin-top: 30px;
+            .heading-text {
+                font-size: 2.5rem;
+                font-weight: 300;
+                line-height: 1.2;
+                padding-left: 0.2em;
+                text-align: center;
+            }
+            .advertise {
+                background-color: $ad-color;
+            }
+            .lead {
+                font-size: 1rem;
+                padding-left: 0em;
+                text-align: center;
             }
         }
     }

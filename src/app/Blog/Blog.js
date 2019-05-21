@@ -58,7 +58,7 @@ export default class Blog extends Component {
         if (!date)
             return '';
         const month = constants.months[date.getMonth()];
-        return month + ' ' + date.getDate();
+        return month + ' ' + date.getDate()+', '+date.getFullYear();
     }
 
     handleNewComment(event) {
@@ -79,12 +79,12 @@ export default class Blog extends Component {
             if (line.isCodeSection)
                 return <div className="code-section" key={index} dangerouslySetInnerHTML={{ __html: line.html }}></div>;
 
-            if (line.isCodeSection)
-                return <div className="code-section" key={index} dangerouslySetInnerHTML={{ __html: line.html }}></div>;
+            if (line.isQuoted)
+                return <div className="quote" key={index} dangerouslySetInnerHTML={{ __html: line.html }}></div>;
 
             return <div key={index} dangerouslySetInnerHTML={{ __html: line.html }}></div>;
         }),
-        url = 'https://shadowfalls.github.io/';
+            url = 'https://shadowfalls.github.io/webtutor';
         return <span className="blog-page">
             {/* <div className="heading-advertise">
                 </div> */}
@@ -92,21 +92,17 @@ export default class Blog extends Component {
                 <Container>
                     <Row>
                         {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
-                        <Col>
-                            <Row>
-                                <Col xs="12">
-                                    <div className="heading-text">
-                                        {this.state.title}
-                                    </div>
-                                    <p className="lead">
-                                        {this.printDate(this.state.date)}
-                                        &nbsp;-&nbsp;{this.state.readTimeMin} mins read
+                        <Col xs="12">
+                            <div className="heading-text">
+                                {this.state.title}
+                            </div>
+                            <p className="lead">
+                                {this.printDate(this.state.date)}
+                                &nbsp;-&nbsp;{this.state.readTimeMin} mins read
                                 </p>
-                                </Col>
-                                <Col xs="12" className="contents">
-                                    {blog}
-                                </Col>
-                            </Row>
+                        </Col>
+                        <Col xs="12" className="contents">
+                            {blog}
                         </Col>
                         {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
                     </Row>
@@ -114,7 +110,7 @@ export default class Blog extends Component {
                         <Col>
                             <ReactDisqusComments
                                 shortname={this.state.title}
-                                identifier={this.state.title+'123'}
+                                identifier={this.state.title + '123'}
                                 title={this.state.title}
                                 url={`${url}/${this.id}`}
                                 onNewComment={this.handleNewComment} />

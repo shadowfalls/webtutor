@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Row, Col, Card, CardBody,
-    CardTitle
+    CardTitle, Container
 } from 'reactstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -20,14 +20,14 @@ export default class Categories extends React.Component {
 
     componentDidMount() {
         axios.get(`${constants.baseUrl}/api/categories/_categorieTypes.json`)
-        .then((res) => {
-            if (res)
-                this.setState({
-                    categories: res.data && res.data.length ? res.data.slice(0, 4) : []
-                });
-        })
-        .catch(err => {
-        });
+            .then((res) => {
+                if (res)
+                    this.setState({
+                        categories: res.data && res.data.length ? res.data.slice(0, 4) : []
+                    });
+            })
+            .catch(err => {
+            });
     }
 
     render() {
@@ -47,21 +47,23 @@ export default class Categories extends React.Component {
             {/* <div className="heading-advertise">
             </div> */}
             <div className="categories-page__container">
-                <Row>
-                    <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col>
-                    <Col>
-                        <Row>
-                            <Col xs="12">
-                                <div className="heading-text">
-                                    Topics
+                <Container>
+                    <Row>
+                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
+                        <Col>
+                            <Row>
+                                <Col xs="12">
+                                    <div className="heading-text">
+                                        Topics
                                 </div>
-                                <p className="lead">These are the available topics/categories of blogs that we have so far</p>
-                            </Col>
-                            {cats}
-                        </Row>
-                    </Col>
-                    <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col>
-                </Row>
+                                    <p className="lead">These are the available topics/categories of blogs that we have so far</p>
+                                </Col>
+                                {cats}
+                            </Row>
+                        </Col>
+                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
+                    </Row>
+                </Container>
             </div>
         </span>;
     }

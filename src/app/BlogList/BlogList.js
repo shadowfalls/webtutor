@@ -1,15 +1,19 @@
 import React from 'react';
 import {
     Row, Col, Card, CardBody,
-    CardTitle
+    CardTitle, Container
 } from 'reactstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+
 import * as constants from '../core/constants';
+import Utils from '../core/Utils';
 
 import './BlogList.scss';
 
 export default class BlogList extends React.Component {
+
+    utils = new Utils();
 
     constructor(props) {
         super(props);
@@ -50,6 +54,7 @@ export default class BlogList extends React.Component {
                 <Card>
                     <CardBody>
                         <CardTitle>{c.blogName}</CardTitle>
+                        <div className="details">{this.utils.printDate(c.date)+' - '+c.readTimeMin+' mins read'}</div>
                         <Link to={{ pathname: constants.routeLinks.blogPage, search: `?id=${c.blogId}` }}>read more</Link>
                     </CardBody>
                 </Card>
@@ -60,21 +65,23 @@ export default class BlogList extends React.Component {
             {/* <div className="heading-advertise">
         </div> */}
             <div className="blog-list__container">
+            <Container>
                 <Row>
-                    <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col>
+                    {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
                     <Col>
                         <Row>
                             <Col xs="12">
                                 <div className="heading-text">
                                     {this.state.catName}
                                 </div>
-                                <p className="lead">Availabel articles</p>
+                                {this.state.catName && <p className="lead">Availabel articles</p>}
                             </Col>
                             {blogs}
                         </Row>
                     </Col>
-                    <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col>
+                    {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
                 </Row>
+            </Container>
             </div>
         </span>;
     }
