@@ -39,10 +39,10 @@ export default class BlogList extends React.Component {
         axios.get(`${constants.baseUrl}/api/categories/${id}.json`)
             .then(res => {
                 if (res)
-                this.setState({
-                    catName: this.name,
-                    blogs: res.data && res.data.length ? res.data : []
-                });
+                    this.setState({
+                        catName: this.name,
+                        blogs: res.data && res.data.length ? res.data : []
+                    });
             })
             .catch(err => this.props.history.goBack());
     }
@@ -50,38 +50,41 @@ export default class BlogList extends React.Component {
     render() {
 
         const blogs = this.state.blogs.map(c => {
-            return <Col xs="11" lg="11" md="11" sm="11" className="card-margin" key={c.blogId}>
-                <Card>
-                    <CardBody>
-                        <CardTitle>{c.blogName}</CardTitle>
-                        <div className="details">{this.utils.printDate(c.date)+' - '+c.readTimeMin+' mins read'}</div>
-                        <Link to={{ pathname: constants.routeLinks.blogPage, search: `?id=${c.blogId}` }}>read more</Link>
-                    </CardBody>
-                </Card>
-            </Col>;
+            return <React.Fragment key={c.blogId}>
+                <Col lg="3" md="2"></Col>
+                <Col xs="11" lg="8" md="9" sm="11" className="card-margin">
+                    <Card>
+                        <CardBody>
+                            <CardTitle>{c.blogName}</CardTitle>
+                            <div className="details">{this.utils.printDate(c.date) + ' - ' + c.readTimeMin + ' mins read'}</div>
+                            <Link to={{ pathname: constants.routeLinks.blogPage, search: `?id=${c.blogId}` }}>read more</Link>
+                        </CardBody>
+                    </Card>
+                </Col>
+            </React.Fragment>;
         });
 
         return <span className="blog-list">
             {/* <div className="heading-advertise">
         </div> */}
             <div className="blog-list__container">
-            <Container>
-                <Row>
-                    {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
-                    <Col>
-                        <Row>
-                            <Col xs="12">
-                                <div className="heading-text">
-                                    {this.state.catName}
-                                </div>
-                                {this.state.catName && <p className="lead">Availabel articles</p>}
-                            </Col>
-                            {blogs}
-                        </Row>
-                    </Col>
-                    {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
-                </Row>
-            </Container>
+                <Container>
+                    <Row>
+                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
+                        <Col>
+                            <Row>
+                                <Col xs="12">
+                                    <div className="heading-text">
+                                        {this.state.catName}
+                                    </div>
+                                    {this.state.catName && <p className="lead">Availabel articles</p>}
+                                </Col>
+                                {blogs}
+                            </Row>
+                        </Col>
+                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
+                    </Row>
+                </Container>
             </div>
         </span>;
     }

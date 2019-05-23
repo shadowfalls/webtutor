@@ -9,7 +9,6 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import Gist from 'react-gist';
 import { Link } from "react-router-dom";
 
 
@@ -17,6 +16,7 @@ import LandingPage from './app/LandingPage/LandingPage';
 import BlogList from './app/BlogList/BlogList';
 import Categories from './app/Categories/Categories';
 import Blog from './app/Blog/Blog';
+import About from './app/About/About';
 import * as constants from './app/core/constants';
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
     return <HashRouter>
       <span className="root">
         <Navbar className="desktop-nav" color="light" light expand="md">
-          <Link className="navbar-brand" to={{ pathname: '/' }}>WebTutor</Link>
+          <Link className="navbar-brand" to={{ pathname: '/' }}>Dinesh Murali</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -46,7 +46,7 @@ class App extends Component {
                 <Link className="nav-link" to={{ pathname: constants.routeLinks.categories }}>Topics</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to={{ pathname: constants.routeLinks.about }}>About me</Link>
+                <Link className="nav-link" to={{ pathname: constants.routeLinks.about }}>About</Link>
               </NavItem>
             </Nav>
           </Collapse>
@@ -57,6 +57,7 @@ class App extends Component {
           <Route exact path='/topics' component={Categories} />
           <Route exact path='/blogs' component={BlogList} />
           <Route exact path='/blog' component={Blog} />
+          <Route exact path='/about' component={About} />
           <Route exact path='/' component={LandingPage} />
         </Switch>
       </span>

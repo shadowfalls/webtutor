@@ -37,7 +37,7 @@ export default class LandingPage extends React.Component {
                 <Card>
                     <CardBody>
                         <CardTitle>{c.catName}</CardTitle>
-                        <Link to={{ pathname: constants.routeLinks.blogListPage, search: `?id=${c.catId}&name=${c.catName}` }}>more</Link>
+                        <Link to={{ pathname: constants.routeLinks.blogListPage, search: `?id=${c.catId}&name=${c.catName}` }}>see blogs</Link>
                     </CardBody>
                 </Card>
             </Col>;
@@ -54,9 +54,9 @@ export default class LandingPage extends React.Component {
                             <Row>
                                 <Col xs="12">
                                     <div className="welcome-text">
-                                        Welcome to WebTutor
+                                        Learn Web-technology
                                     </div>
-                                    <p className="lead">Learn web-technology the right way. We have blog articles for the following technologies</p>
+                                    <p className="lead">We have blog articles for the following technologies</p>
                                 </Col>
                                 {cats}
                             </Row>
