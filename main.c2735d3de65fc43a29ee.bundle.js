@@ -112,7 +112,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "81ab9451afd677519903";
+/******/ 	var hotCurrentHash = "c2735d3de65fc43a29ee";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -907,7 +907,7 @@ module.exports = constants;
 
 /***/ }),
 
-/***/ 65:
+/***/ 63:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
@@ -956,7 +956,7 @@ var main = __webpack_require__(42);
 var bootstrap_min = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/react-router-dom/esm/react-router-dom.js
-var react_router_dom = __webpack_require__(9);
+var react_router_dom = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/react-router/esm/react-router.js
 var react_router = __webpack_require__(13);
@@ -975,9 +975,6 @@ var Nav = __webpack_require__(92);
 
 // EXTERNAL MODULE: ./node_modules/reactstrap/es/NavItem.js
 var NavItem = __webpack_require__(93);
-
-// EXTERNAL MODULE: ./node_modules/react-gist/es/index.js
-var es = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/reactstrap/es/Col.js
 var Col = __webpack_require__(84);
@@ -1005,7 +1002,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 var constants = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./src/app/LandingPage/LandingPage.scss
-var LandingPage_LandingPage = __webpack_require__(65);
+var LandingPage_LandingPage = __webpack_require__(63);
 
 // CONCATENATED MODULE: ./src/app/LandingPage/LandingPage.js
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1077,7 +1074,7 @@ function (_React$Component) {
             pathname: constants["routeLinks"].blogListPage,
             search: "?id=".concat(c.catId, "&name=").concat(c.catName)
           }
-        }, "more"))));
+        }, "see blogs"))));
       });
       return react_default.a.createElement("span", {
         className: "landing-page"
@@ -1087,9 +1084,9 @@ function (_React$Component) {
         xs: "12"
       }, react_default.a.createElement("div", {
         className: "welcome-text"
-      }, "Welcome to WebTutor"), react_default.a.createElement("p", {
+      }, "Learn Web-technology"), react_default.a.createElement("p", {
         className: "lead"
-      }, "Learn web-technology the right way. We have blog articles for the following technologies")), cats))))));
+      }, "We have blog articles for the following technologies")), cats))))));
     }
   }]);
 
@@ -1218,13 +1215,17 @@ function (_React$Component) {
       var _this3 = this;
 
       var blogs = this.state.blogs.map(function (c) {
-        return react_default.a.createElement(Col["a" /* default */], {
-          xs: "11",
-          lg: "11",
-          md: "11",
-          sm: "11",
-          className: "card-margin",
+        return react_default.a.createElement(react_default.a.Fragment, {
           key: c.blogId
+        }, react_default.a.createElement(Col["a" /* default */], {
+          lg: "3",
+          md: "2"
+        }), react_default.a.createElement(Col["a" /* default */], {
+          xs: "11",
+          lg: "8",
+          md: "9",
+          sm: "11",
+          className: "card-margin"
         }, react_default.a.createElement(Card["a" /* default */], null, react_default.a.createElement(CardBody["a" /* default */], null, react_default.a.createElement(CardTitle["a" /* default */], null, c.blogName), react_default.a.createElement("div", {
           className: "details"
         }, _this3.utils.printDate(c.date) + ' - ' + c.readTimeMin + ' mins read'), react_default.a.createElement(react_router_dom["b" /* Link */], {
@@ -1232,7 +1233,7 @@ function (_React$Component) {
             pathname: constants["routeLinks"].blogPage,
             search: "?id=".concat(c.blogId)
           }
-        }, "read more"))));
+        }, "read more")))));
       });
       return react_default.a.createElement("span", {
         className: "blog-list"
@@ -1346,8 +1347,11 @@ function (_React$Component) {
 
 
 // EXTERNAL MODULE: ./node_modules/react-disqus-comments/build/main.js
-var build_main = __webpack_require__(37);
+var build_main = __webpack_require__(36);
 var build_main_default = /*#__PURE__*/__webpack_require__.n(build_main);
+
+// EXTERNAL MODULE: ./node_modules/react-gist/es/index.js
+var es = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./src/app/Blog/Blog.scss
 var Blog_Blog = __webpack_require__(75);
@@ -1516,6 +1520,53 @@ function (_Component) {
 }(react["Component"]);
 
 
+// CONCATENATED MODULE: ./src/app/About/About.js
+function About_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { About_typeof = function _typeof(obj) { return typeof obj; }; } else { About_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return About_typeof(obj); }
+
+function About_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function About_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function About_createClass(Constructor, protoProps, staticProps) { if (protoProps) About_defineProperties(Constructor.prototype, protoProps); if (staticProps) About_defineProperties(Constructor, staticProps); return Constructor; }
+
+function About_possibleConstructorReturn(self, call) { if (call && (About_typeof(call) === "object" || typeof call === "function")) { return call; } return About_assertThisInitialized(self); }
+
+function About_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function About_getPrototypeOf(o) { About_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return About_getPrototypeOf(o); }
+
+function About_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) About_setPrototypeOf(subClass, superClass); }
+
+function About_setPrototypeOf(o, p) { About_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return About_setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var About_About =
+/*#__PURE__*/
+function (_React$Component) {
+  About_inherits(About, _React$Component);
+
+  function About(props) {
+    About_classCallCheck(this, About);
+
+    return About_possibleConstructorReturn(this, About_getPrototypeOf(About).call(this, props));
+  }
+
+  About_createClass(About, [{
+    key: "render",
+    value: function render() {
+      return react_default.a.createElement("div", null, "About");
+    }
+  }]);
+
+  return About;
+}(react_default.a.Component);
+
+
 // CONCATENATED MODULE: ./src/App.js
 function App_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { App_typeof = function _typeof(obj) { return typeof obj; }; } else { App_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return App_typeof(obj); }
 
@@ -1586,7 +1637,7 @@ function (_Component) {
         to: {
           pathname: '/'
         }
-      }, "WebTutor"), react_default.a.createElement(NavbarToggler["a" /* default */], {
+      }, "Dinesh Murali"), react_default.a.createElement(NavbarToggler["a" /* default */], {
         onClick: this.toggle
       }), react_default.a.createElement(Collapse["a" /* default */], {
         isOpen: this.state.isOpen,
@@ -1604,7 +1655,7 @@ function (_Component) {
         to: {
           pathname: constants["routeLinks"].about
         }
-      }, "About me"))))), react_default.a.createElement("div", {
+      }, "About"))))), react_default.a.createElement("div", {
         className: "cover-image"
       }), react_default.a.createElement(react_router["c" /* Switch */], null, react_default.a.createElement(react_router["a" /* Route */], {
         exact: true,
@@ -1618,6 +1669,10 @@ function (_Component) {
         exact: true,
         path: "/blog",
         component: Blog_Blog_Blog
+      }), react_default.a.createElement(react_router["a" /* Route */], {
+        exact: true,
+        path: "/about",
+        component: About_About
       }), react_default.a.createElement(react_router["a" /* Route */], {
         exact: true,
         path: "/",
@@ -1642,4 +1697,4 @@ wrapper ? react_dom_default.a.render(react_default.a.createElement(src_App, null
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.81ab9451afd677519903.bundle.js.map
+//# sourceMappingURL=main.c2735d3de65fc43a29ee.bundle.js.map
