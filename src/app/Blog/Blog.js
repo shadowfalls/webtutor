@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 import Gist from 'react-gist';
+import { Helmet } from 'react-helmet';
 
 import './Blog.scss';
 
@@ -19,6 +20,7 @@ export default class Blog extends Component {
         super(props);
         this.state = {
             title: '',
+            description: '',
             categoryId: '',
             readTimeMin: 0,
             date: this.utils.getDate(),
@@ -46,6 +48,7 @@ export default class Blog extends Component {
                     this.setState({
                         content: res.data.content && res.data.content.length ? res.data.content : [],
                         title: res.data.title,
+                        description: res.data.description,
                         date: this.utils.getDate(res.data.date),
                         readTimeMin: res.data.readTimeMin,
                         categoryId: res.data.categoryId
@@ -58,7 +61,7 @@ export default class Blog extends Component {
         if (!date)
             return '';
         const month = constants.months[date.getMonth()];
-        return month + ' ' + date.getDate()+', '+date.getFullYear();
+        return month + ' ' + date.getDate() + ', ' + date.getFullYear();
     }
 
     handleNewComment(event) {
@@ -87,6 +90,10 @@ export default class Blog extends Component {
         return <span className="blog-page">
             {/* <div className="heading-advertise">
                 </div> */}
+            <Helmet>
+                <title>{this.state.title}</title>
+                <meta name="description" content={this.state.description} />
+            </Helmet>
             <div className="blog-page__container">
                 <Container>
                     <Row>
