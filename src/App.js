@@ -55,8 +55,8 @@ class App extends Component {
         </div>
         <Switch>
           <Route exact path='/topics' component={Categories} />
-          <Route exact path='/blogs' component={BlogList} />
-          <Route exact path='/blog' component={Blog} />
+          <Route exact path='/blogs/:name/:id' component={BlogList} />
+          <Route exact path='/blog/:id' component={Blog} />
           <Route exact path='/about' component={About} />
           <Route exact path='/' component={LandingPage} />
         </Switch>

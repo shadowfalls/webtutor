@@ -30,9 +30,9 @@ export default class Blog extends Component {
     }
 
     componentDidMount() {
-        const params = new URLSearchParams(this.props.location.search);
-        if (params && params.get && params.get('id')) {
-            this.id = params.get('id');
+        const { match: { params } } = this.props;
+        if (params && params.id) {
+            this.id = params.id;
             if (!this.id)
                 this.props.history.goBack();
             this.fetchBlog(this.id);

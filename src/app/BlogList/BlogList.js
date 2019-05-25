@@ -23,10 +23,10 @@ export default class BlogList extends React.Component {
     }
 
     componentDidMount() {
-        const params = new URLSearchParams(this.props.location.search);
-        if (params && params.get && params.get('id')) {
-            this.id = params.get('id');
-            this.name = params.get('name');
+        const { match: { params } } = this.props;
+        if (params && params.id) {
+            this.id = params.id;
+            this.name = params.name;
             if (!this.id)
                 this.props.history.goBack();
             this.fetchBlogs(this.id);
@@ -57,7 +57,7 @@ export default class BlogList extends React.Component {
                         <CardBody>
                             <CardTitle>{c.blogName}</CardTitle>
                             <div className="details">{this.utils.printDate(c.date) + ' - ' + c.readTimeMin + ' mins read'}</div>
-                            <Link to={{ pathname: constants.routeLinks.blogPage, search: `?id=${c.blogId}` }}>read more</Link>
+                            <Link to={`${constants.routeLinks.blogPage}/${c.blogId}`}>read more</Link>
                         </CardBody>
                     </Card>
                 </Col>

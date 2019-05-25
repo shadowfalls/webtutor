@@ -37,7 +37,7 @@ export default class Categories extends React.Component {
                 <Card>
                     <CardBody>
                         <CardTitle>{c.catName}</CardTitle>
-                        <Link to={{ pathname: constants.routeLinks.blogListPage, search: `?id=${c.catId}&name=${c.catName}` }}>more</Link>
+                        <Link to={`${constants.routeLinks.blogListPage}/${c.catName}/${c.catId}`}>more</Link>
                     </CardBody>
                 </Card>
             </Col>;

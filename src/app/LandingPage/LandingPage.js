@@ -37,7 +37,7 @@ export default class LandingPage extends React.Component {
                 <Card>
                     <CardBody>
                         <CardTitle>{c.catName}</CardTitle>
-                        <Link to={{ pathname: constants.routeLinks.blogListPage, search: `?id=${c.catId}&name=${c.catName}` }}>see blogs</Link>
+                        <Link to={`${constants.routeLinks.blogListPage}/${c.catName}/${c.catId}`}>see blogs</Link>
                     </CardBody>
                 </Card>
             </Col>;
