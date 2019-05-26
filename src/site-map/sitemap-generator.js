@@ -6,7 +6,7 @@ const Sitemap = require('react-router-sitemap').default;
 // 2.
 (
     new Sitemap(router)
-        .build('https://shadowfalls.github.io/webtutor')
+        .build('https://www.dineshmg.com')
         .save('./sitemap.xml')
 );
 
