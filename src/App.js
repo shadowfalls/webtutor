@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    return <HashRouter>
+    return <BrowserRouter>
       <span className="root">
         <Navbar className="desktop-nav" color="light" light expand="md">
           <Link className="navbar-brand" to={{ pathname: '/' }}>Dinesh Murali</Link>
@@ -61,7 +61,7 @@ class App extends Component {
           <Route exact path='/' component={LandingPage} />
         </Switch>
       </span>
-    </HashRouter>;
+    </BrowserRouter>;
   }
 }
 export default App;
