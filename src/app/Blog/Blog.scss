@@ -61,6 +61,15 @@
                 padding-left: 20%;
             }
         }
+        .share {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .recent {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1em;
+        }
     }
     @media only screen and (max-width: 500px) {
         &__container {

@@ -6,9 +6,11 @@ import {
 import axios from 'axios';
 import Gist from 'react-gist';
 import { Helmet } from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Blog.scss';
 
+import RecentArticles from '../Shared/RecentArticles/RecentArticles';
 import * as constants from '../core/constants';
 import Utils from '../core/Utils';
 
@@ -24,7 +26,13 @@ export default class Blog extends Component {
             categoryId: '',
             readTimeMin: 0,
             date: this.utils.getDate(),
-            content: []
+            content: [],
+            recent: [],
+            shareLinks: {
+                linkedIn: 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.dineshmg.com/&title=Learn%20Web%20development&summary=&source=',
+                facebook: 'https://www.facebook.com/sharer/sharer.php?u=https%3A//www.dineshmg.com/',
+                twitter: 'https://twitter.com/home?status=https%3A//www.dineshmg.com/',
+            }
         };
         this.handleNewComment = this.handleNewComment.bind(this);
     }
@@ -37,6 +45,15 @@ export default class Blog extends Component {
                 this.props.history.goBack();
             this.fetchBlog(this.id);
         }
+        this.utils.getRecentArticles()
+            .then((res) => {
+                if (res)
+                    this.setState({
+                        recent: res.data && res.data.length ? res.data : []
+                    });
+            })
+            .catch(err => {
+            });
     }
 
     fetchBlog(id) {
@@ -111,6 +128,29 @@ export default class Blog extends Component {
                             {blog}
                         </Col>
                         {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
+                        <Col xs="12">
+                            <div className="share">
+                                Share:
+                            </div><br></br>
+                            <a target="_blank" className="mr-5" rel="noopener noreferrer" href={this.state.shareLinks.linkedIn}>
+                                <FontAwesomeIcon icon={['fab', 'linkedin-in']} size="2x" /></a>&nbsp;
+                            <a target="_blank" className="mr-5" rel="noopener noreferrer" href={this.state.shareLinks.facebook}>
+                                <FontAwesomeIcon icon={['fab', 'facebook']} size="2x" /></a>
+                            <a target="_blank" className="mr-5" rel="noopener noreferrer" href={this.state.shareLinks.twitter}>
+                                <FontAwesomeIcon icon={['fab', 'twitter']} size="2x" /></a>
+                        </Col>
+                        <Col xs="12">
+                            <hr></hr>
+                        </Col>
+                        <Col xs="12">
+                            <div className="recent">
+                                Recent Articles:
+                            </div>
+                        </Col>
+                        <RecentArticles articles={this.state.recent} />
+                        <Col xs="12">
+                            <hr></hr>
+                        </Col>
                     </Row>
                     <Row>
                         <Col>

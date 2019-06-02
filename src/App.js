@@ -11,6 +11,10 @@ import {
 } from 'reactstrap';
 import { Link } from "react-router-dom";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faLinkedinIn, faGithub, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
+
+library.add([faLinkedinIn, faGithub, faTwitter, faFacebook]);
 
 import LandingPage from './app/LandingPage/LandingPage';
 import BlogList from './app/BlogList/BlogList';

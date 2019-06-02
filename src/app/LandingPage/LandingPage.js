@@ -5,25 +5,40 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+
+import RecentArticles from '../Shared/RecentArticles/RecentArticles';
 import * as constants from '../core/constants';
+import Utils from '../core/Utils';
 
 import './LandingPage.scss';
 
 export default class LandingPage extends React.Component {
 
+    utils = new Utils();
+
     constructor(props) {
         super(props);
         this.state = {
-            categories: []
+            categories: [],
+            recent: []
         }
     }
 
     componentDidMount() {
-        axios.get(`${constants.baseUrl}/api/categories/_categorieTypes.json`)
+        axios.get(`${constants.baseUrl}/api/categories/${constants.categoryTypes}.json`)
             .then((res) => {
                 if (res)
                     this.setState({
                         categories: res.data && res.data.length ? res.data.slice(0, 4) : []
+                    });
+            })
+            .catch(err => {
+            });
+        this.utils.getRecentArticles()
+            .then((res) => {
+                if (res)
+                    this.setState({
+                        recent: res.data && res.data.length ? res.data : []
                     });
             })
             .catch(err => {
@@ -49,22 +64,25 @@ export default class LandingPage extends React.Component {
             <div className="landing-page__container">
                 <Container>
                     <Row>
-                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xl="3" lg="3" md="2"></Col> */}
-                        <Col>
-                            <Row>
-                                <Col xs="12">
-                                    <div className="welcome-text">
-                                        Learn Web-technology
+                        <Col xs="12">
+                            <div className="welcome-text">
+                                Learn Web-technology
                                     </div>
-                                    <p className="lead">We have blog articles for the following technologies</p>
-                                </Col>
-                                {cats}
-                            </Row>
+                            <p className="lead">We have blog articles for the following technologies</p>
                         </Col>
-                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" lg="2" xl="2" md="2"></Col> */}
+                        {cats}
+                        <Col xs="12">
+                            <hr></hr>
+                        </Col>
+                        <Col xs="12">
+                            <div className="recent">
+                                Recent Articles:
+                            </div>
+                        </Col>
+                        <RecentArticles articles={this.state.recent} />
                     </Row>
                 </Container>
             </div>
-        </span>;
+        </span >;
     }
 }

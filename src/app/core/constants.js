@@ -20,6 +20,8 @@ class AppConstants {
         10: 'November',
         11: 'December'
     };
+    categoryTypes = '_categorieTypes';
+    recentArticles = '_recentArticlesJson';
 }
 
 const constants = new AppConstants();

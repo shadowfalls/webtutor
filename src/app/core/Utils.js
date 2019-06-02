@@ -1,4 +1,5 @@
 import * as constants from './constants';
+import axios from 'axios';
 
 export default class Utils {
 
@@ -14,5 +15,9 @@ export default class Utils {
         date = this.getDate(date);
         const month = constants.months[date.getMonth()];
         return month + ' ' + date.getDate()+', '+date.getFullYear();
+    }
+
+    getRecentArticles() {
+        return axios.get(`${constants.baseUrl}/api/articles/${constants.recentArticles}.json`);
     }
 }
