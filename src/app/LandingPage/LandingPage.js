@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 import RecentArticles from '../Shared/RecentArticles/RecentArticles';
 import * as constants from '../core/constants';
@@ -61,6 +62,10 @@ export default class LandingPage extends React.Component {
         return <span className="landing-page">
             {/* <div className="heading-advertise">
             </div> */}
+            <Helmet>
+                <title>Dinesh Murali</title>
+                <meta name="description" content={"Welcome to my website. We have blog articles that you can read."} />
+            </Helmet>
             <div className="landing-page__container">
                 <Container>
                     <Row>

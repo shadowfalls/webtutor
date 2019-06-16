@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 import * as constants from '../core/constants';
 import Utils from '../core/Utils';
@@ -67,6 +68,10 @@ export default class BlogList extends React.Component {
         return <span className="blog-list">
             {/* <div className="heading-advertise">
         </div> */}
+            <Helmet>
+                <title>{this.state.catName}</title>
+                <meta name="description" content={"List of blogs for "+this.state.catName} />
+            </Helmet>
             <div className="blog-list__container">
                 <Container>
                     <Row>
@@ -77,7 +82,7 @@ export default class BlogList extends React.Component {
                                     <div className="heading-text">
                                         {this.state.catName}
                                     </div>
-                                    {this.state.catName && <p className="lead">Availabel articles</p>}
+                                    {this.state.catName && <p className="lead">Available articles</p>}
                                 </Col>
                                 {blogs}
                             </Row>

@@ -56,6 +56,16 @@ export default class Blog extends Component {
             });
     }
 
+    componentWillReceiveProps(nextProps) {
+        const { match: { params } } = nextProps;
+        if (params && params.id) {
+            this.id = params.id;
+            if (!this.id)
+                this.props.history.goBack();
+            this.fetchBlog(this.id);
+        }
+    }
+
     fetchBlog(id) {
         if (!id)
             return;
@@ -70,6 +80,7 @@ export default class Blog extends Component {
                         readTimeMin: res.data.readTimeMin,
                         categoryId: res.data.categoryId
                     });
+                window.scrollTo(0, 0)
             })
             .catch(err => this.props.history.goBack());
     }
