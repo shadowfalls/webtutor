@@ -6,6 +6,7 @@ import {
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import * as constants from '../core/constants';
+import { Helmet } from 'react-helmet';
 
 import './Categories.scss';
 
@@ -46,6 +47,10 @@ export default class Categories extends React.Component {
         return <span className="categories-page">
             {/* <div className="heading-advertise">
             </div> */}
+            <Helmet>
+                <title>Dinesh murali</title>
+                <meta name="description" content={"List of topics"} />
+            </Helmet>
             <div className="categories-page__container">
                 <Container>
                     <Row>

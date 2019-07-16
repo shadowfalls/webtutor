@@ -50,6 +50,7 @@
     "gh-pages": "^2.0.1",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.11.0",
+    "react-adsense": "^0.1.0",
     "react-disqus-comments": "^1.4.0",
     "react-gist": "^1.2.1",
     "react-helmet": "^5.2.1",

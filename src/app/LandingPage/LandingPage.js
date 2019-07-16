@@ -6,6 +6,7 @@ import {
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
+import AdSense from 'react-adsense';
 
 import RecentArticles from '../Shared/RecentArticles/RecentArticles';
 import * as constants from '../core/constants';
@@ -72,12 +73,20 @@ export default class LandingPage extends React.Component {
                         <Col xs="12">
                             <div className="welcome-text">
                                 Learn Web-technology
-                                    </div>
+                            </div>
                             <p className="lead">We have blog articles for the following technologies</p>
                         </Col>
                         {cats}
                         <Col xs="12">
                             <hr></hr>
+                        </Col>
+                        <Col xs="12">
+                        <AdSense.Google
+                            client='ca-pub-3929370842605036'
+                            slot='7013353577'
+                            format='auto'
+                            responsive='true'
+                        />
                         </Col>
                         <Col xs="12">
                             <div className="recent">

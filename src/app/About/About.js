@@ -19,7 +19,7 @@ export default class About extends React.Component {
         this.state = {
             title: 'About',
             description: `I am Dinesh. I am enthusiastic software engineer who loves coding. I am open for freelancing
-            work related to JavaScript. Ilinke travelling to new places. I love learning new things.
+            work related to JavaScript. I like travelling to new places. I love learning new things.
             `,
             linkedIn: 'https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile',
             github: 'https://github.com/shadowfalls'
