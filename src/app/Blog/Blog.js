@@ -7,6 +7,7 @@ import axios from 'axios';
 import Gist from 'react-gist';
 import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AdSense from 'react-adsense';
 
 import './Blog.scss';
 
@@ -125,7 +126,14 @@ export default class Blog extends Component {
             <div className="blog-page__container">
                 <Container>
                     <Row>
-                        {/* <Col className="advertise d-none d-xl-block d-lg-block d-md-block" xs="3" md="2"></Col> */}
+                        <Col xs="12">
+                            <AdSense.Google
+                                client='ca-pub-3929370842605036'
+                                slot='3072497734'
+                                format='auto'
+                                responsive='true'
+                            />
+                        </Col>
                         <Col xs="12">
                             <div className="heading-text">
                                 {this.state.title}
